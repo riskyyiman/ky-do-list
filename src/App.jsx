@@ -90,7 +90,7 @@ const Sidebar = ({ isOpen, toggleSidebar, activeView, setActiveView, todos, sear
       <div className={`fixed inset-0 bg-black/30 z-40 md:hidden backdrop-blur-sm transition-opacity duration-300 ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`} onClick={toggleSidebar} />
 
       <aside
-        className={`fixed md:relative inset-y-0 left-0 z-50 w-[280px] bg-[#fcfaf9] border-r border-gray-200 flex flex-col h-full transform transition-transform duration-300 ease-[cubic-bezier(0.2,0,0,1)] ${
+        className={`fixed md:relative inset-y-0 left-0 z-50 w-70 bg-[#fcfaf9] border-r border-gray-200 flex flex-col h-full transform transition-transform duration-300 ease-[cubic-bezier(0.2,0,0,1)] ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         } md:translate-x-0 shrink-0 shadow-xl md:shadow-none`}
       >
@@ -337,7 +337,7 @@ const AboutPage = () => {
 
         <div className="lg:col-span-1">
           <MiniCalendar />
-          <div className="mt-4 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl p-5 text-white shadow-lg">
+          <div className="mt-4 bg-linear-to-br from-indigo-500 to-purple-600 rounded-xl p-5 text-white shadow-lg">
             <h4 className="font-bold text-lg mb-1">Tetap Fokus!</h4>
             <p className="text-xs text-indigo-100 opacity-90 leading-relaxed">"Kunci produktivitas bukanlah melakukan lebih banyak hal, tetapi melakukan hal yang benar."</p>
           </div>
@@ -504,7 +504,7 @@ export default function App() {
   };
 
   return (
-    <div className="flex h-screen bg-gradient-to-br from-blue-50 to-indigo-50 text-gray-900 font-sans overflow-hidden">
+    <div className="flex h-screen bg-linear-to-br from-blue-50 to-indigo-50 text-gray-900 font-sans overflow-hidden">
       <Sidebar
         isOpen={isSidebarOpen}
         toggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}
@@ -625,7 +625,7 @@ export default function App() {
                     </div>
                   ) : (
                     filteredTodos.map((todo, index) => (
-                      <div key={todo.id} className={`relative p-5 rounded-2xl border transition-all hover:shadow-lg group flex flex-col justify-between min-h-[180px] ${getCardColor(index)}`}>
+                      <div key={todo.id} className={`relative p-5 rounded-2xl border transition-all hover:shadow-lg group flex flex-col justify-between min-h-45 ${getCardColor(index)}`}>
                         <div>
                           <div className="flex items-start justify-between mb-2">
                             {isEditing === todo.id ? (
@@ -672,7 +672,7 @@ export default function App() {
                             </div>
                           </div>
                           {isEditing !== todo.id && (
-                            <p className={`text-xs text-gray-600 mb-4 whitespace-pre-wrap leading-relaxed break-words ${todo.completed ? 'opacity-50' : ''}`}>
+                            <p className={`text-xs text-gray-600 mb-4 whitespace-pre-wrap leading-relaxed wrap-break-word ${todo.completed ? 'opacity-50' : ''}`}>
                               {todo.description || <span className="text-gray-400 italic">Tidak ada deskripsi</span>}
                             </p>
                           )}
